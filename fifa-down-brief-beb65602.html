@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 赛程数据与资料索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', 'Songti SC', 'SimSun', serif;
+      background: #faf8f5;
+      color: #2c2c2c;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      background: #fffcf9;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.02);
+      border-radius: 18px;
+      padding: 3rem 2.4rem;
+    }
+
+    /* hero 区 */
+    .hero {
+      border-bottom: 1px solid #e4ddd6;
+      padding-bottom: 2.2rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: #1f1a16;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #706a63;
+      border-left: 3px solid #b6a89b;
+      padding-left: 1.2rem;
+      margin-top: 0.3rem;
+      font-style: italic;
+    }
+
+    /* 信息型提示框 */
+    .info-block {
+      background: #f3efe9;
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      margin: 2.4rem 0;
+      border-left: 5px solid #8b7b6b;
+      font-size: 0.95rem;
+    }
+
+    .info-block strong {
+      color: #3f352c;
+    }
+
+    /* 优势区（资料整理角度） */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 1.8rem;
+      margin: 2.5rem 0;
+    }
+
+    .feature-item {
+      background: #fcf9f6;
+      padding: 1rem 1.2rem 1.2rem 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 0 1px #eae3db;
+    }
+
+    .feature-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #3b3129;
+      letter-spacing: 0.01em;
+    }
+
+    .feature-item p {
+      font-size: 0.875rem;
+      color: #4d443b;
+    }
+
+    /* 说明区 / article 风格 */
+    .explain {
+      margin: 2.8rem 0;
+    }
+
+    .explain h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      border-bottom: 1px dashed #d5cdc3;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.2rem;
+      color: #2e2620;
+    }
+
+    .explain p {
+      margin-bottom: 1.1rem;
+    }
+
+    .explain .quote {
+      background: #f5f0ea;
+      padding: 1.2rem 1.6rem;
+      border-radius: 12px;
+      margin: 1.8rem 0;
+      font-size: 0.95rem;
+      color: #3f3a34;
+    }
+
+    .explain .quote::before {
+      content: "📋 ";
+      font-size: 1.1rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      background: #f7f2ec;
+      border-radius: 14px;
+      padding: 1.8rem 2rem;
+      margin: 2.4rem 0 2rem;
+    }
+
+    .faq-summary h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+      color: #2c231d;
+    }
+
+    .faq-item {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      align-items: baseline;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      min-width: 5.5rem;
+      color: #584c41;
+      font-size: 0.9rem;
+    }
+
+    .faq-a {
+      font-size: 0.9rem;
+      color: #3f3730;
+      line-height: 1.6;
+    }
+
+    .faq-a a {
+      color: #6b5a4a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #c9bcaa;
+    }
+
+    .faq-a a:hover {
+      color: #2f241c;
+    }
+
+    /* 底部 */
+    .footer-links {
+      margin-top: 2.8rem;
+      border-top: 1px solid #e2d9d0;
+      padding-top: 1.8rem;
+      font-size: 0.85rem;
+      color: #6d6258;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links .ref {
+      background: #f1ece6;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+    }
+
+    .footer-links a {
+      color: #5e4e3d;
+      text-decoration: none;
+      border-bottom: 1px dotted #b7a99b;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 1px solid #3b2b1d;
+    }
+
+    /* 响应式 */
+    @media (max-width: 680px) {
+      body {
+        padding: 1rem 0.6rem;
+      }
+      .container {
+        padding: 2rem 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .faq-item {
+        flex-direction: column;
+        gap: 0.1rem;
+      }
+      .faq-q {
+        min-width: auto;
+      }
+      .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- hero -->
+  <div class="hero">
+    <h1>世界杯 · 信息索引</h1>
+    <div class="sub">赛程、数据与历史资料整理 · 面向研究者与深度爱好者</div>
+  </div>
+
+  <!-- 信息密度块 -->
+  <div class="info-block">
+    <strong>关于本索引</strong> —— 作为非官方资料聚合，围绕历届<a href="https://fifa-down-worldcup.com" style="color:#4a3d32; text-decoration: underline; text-underline-offset: 2px;">世界杯</a>决赛圈及预选赛，整理赛程对阵、小组积分、淘汰赛树状图、球员数据及场次记录。内容源以公开数据与赛事报告为主，适合快速查阅与交叉比对。
+  </div>
+
+  <!-- 优势区（从资料整理角度） -->
+  <div class="features-grid">
+    <div class="feature-item">
+      <h3>结构化赛程表</h3>
+      <p>每届完整赛程按时间/分组/阶段排列，包含比赛日期、球场、比分及进球球员，方便回溯或研究战术演变。</p>
+    </div>
+    <div class="feature-item">
+      <h3>历史数据对齐</h3>
+      <p>1930年至今主要赛事数据按统一字段整理，涵盖扩军、改制等不同时期，降低跨届比较的检索成本。</p>
+    </div>
+    <div class="feature-item">
+      <h3>预选赛与附加赛</h3>
+      <p>六大洲足联预选赛晋级路径、附加赛对阵及关键场次均有收录，便于理解最终决赛圈名额构成。</p>
+    </div>
+    <div class="feature-item">
+      <h3>球员与纪录条目</h3>
+      <p>射手榜、出场次数、最年轻/年长球员、帽子戏法等列表，参考 FIFA 官方统计与赛事报告。</p>
+    </div>
+  </div>
+
+  <!-- 说明区（切入角度具体展开） -->
+  <div class="explain">
+    <h2>从信息索引看世界杯</h2>
+    <p>对于需要快速定位某届赛事细节的使用者而言，零散的新闻报道难以满足系统性查阅。这里尝试按「届次 — 阶段 — 场次」三层结构组织数据，每场比赛附带裁判、到场观众及天气（部分届次）等辅助字段。</p>
+    <p>索引并不试图覆盖所有二创内容，而是聚焦于可验证的原始赛事记录。例如小组赛同分排名规则、加时赛与点球大战的适用轮次，均以当届竞赛规程备注。</p>
+    <div class="quote">
+      参考示例：2002 年韩日世界杯小组赛阶段，8 个小组每组前两名晋级；16 强对阵依照 A1–B2、B1–A2 等固定交叉规则。此类结构信息均以表格呈现。
+    </div>
+    <p>此外，每届赛事均附注官方用球、吉祥物及主题曲等文化侧面数据，以呈现赛事背景全貌。内容持续根据公开资料修正与增补。</p>
+  </div>
+
+  <!-- FAQ 摘要（简洁，3 组） -->
+  <div class="faq-summary">
+    <h2>常见查阅点摘要</h2>
+    <div class="faq-item">
+      <span class="faq-q">数据更新频率？</span>
+      <span class="faq-a">以届次为单位，每届决赛圈结束后 2–4 个月内完成基础赛果核对；预选赛部分随国际比赛日窗口逐步补充。</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">是否包含女足？</span>
+      <span class="faq-a">目前索引以男足 <a href="https://fifa-down-worldcup.com">世界杯</a> 为主，女足世界杯另设独立页面（规划中）。</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">如何引用或纠错？</span>
+      <span class="faq-a">页面底部有联络方式（邮件/表单）；也可通过赛事官方报告交叉验证，索引内每场数据均标注数据来源缩写。</span>
+    </div>
+  </div>
+
+  <!-- 底部链接 -->
+  <div class="footer-links">
+    <span>信息索引 · 持续修订</span>
+    <span class="ref">主要参考：<a href="https://fifa-down-worldcup.com">世界杯</a> 赛事数据库</span>
+    <span>📁 版本 2025.04</span>
+  </div>
+</div>
+</body>
+</html>
